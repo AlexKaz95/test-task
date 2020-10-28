@@ -1,0 +1,18 @@
+.clear {
+    text-decoration: underline;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+    border: 1px solid #999;
+    border-top: none;
+}
+
+.text {
+    margin-right: 10px;
+}
+

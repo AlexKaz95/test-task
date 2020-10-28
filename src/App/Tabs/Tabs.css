@@ -1,0 +1,25 @@
+.tabs-wrapper{
+    list-style: none;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    align-items: center;
+}
+
+.tabs-wrapper .tab{
+    padding: 20px;
+    border: 1px solid #999;
+    border-left: none;
+    cursor: pointer;
+}
+
+.tabs-wrapper .tab:nth-child(1){
+    border-left: 1px solid #999;
+}
+
+.tabs-wrapper .tab.active {
+    border-bottom: 1px solid #fff;
+}
