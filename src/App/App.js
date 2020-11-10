@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import BooksList from './BooksList/BooksList';
 import Tabs from './Tabs/Tabs';
 import Filter from './Filter/Filter';
+import AddBook from './features/AddBook/script';
 
 function getSearchString(tags, tab) {
 
@@ -61,6 +62,7 @@ function App(props) {
     <>
     <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab}/>
     <Filter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter}/>
+    <AddBook currentTabParams={currentTabParams[currentTab]}/>
     <BooksList currentTabParams={currentTabParams[currentTab]} setSelectedFilter={setSelectedFilter} selectedFilter={selectedFilter}/>
     </>
   )

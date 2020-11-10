@@ -1,0 +1,71 @@
+.add-new-book{
+    font-weight: 300;
+    font-size: 40px;
+    width: 100%;
+    padding: 40px 0;
+    border: 1px solid #999;
+    border-top: none;
+    box-sizing: border-box;
+}
+
+.add-new-book span{
+    margin: auto;
+    text-align: center;
+    border-radius: 100%;
+    border: 2px dashed #999;
+    width: 40px;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    cursor: pointer;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+
+.add-new-book span:hover{
+    transform: scale(1.5);
+}
+
+.modal-window {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-add-book{
+    background-color: #fff;
+    border-radius: 2px;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 4fr 1fr;
+}
+
+.input-line{
+    display: grid;
+    grid-auto-rows: max-content;
+    margin-bottom: 10px;
+}
+
+.input-line textarea{
+    max-width: 310px;
+    min-height: 130px;
+    max-height: 130px;
+}
+
+.add-button {
+    background: #fff;
+    padding: 10px 40px;
+    margin-top: 10px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s; 
+}
+
+.add-button:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+}
