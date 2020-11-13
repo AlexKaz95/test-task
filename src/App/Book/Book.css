@@ -24,3 +24,15 @@
 .description {
     margin-bottom: 20px;
 }
+
+.remove-book {
+    text-decoration: underline;
+    text-align: right;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.buttons-wrapper{
+    text-align: right;
+}

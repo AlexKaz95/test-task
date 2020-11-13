@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import BooksList from './BooksList/BooksList';
 import Tabs from './Tabs/Tabs';
 import Filter from './Filter/Filter';
-import AddBook from './features/AddBook/script';
+import AddBook from './features/AddBook/AddBook';
 
 function getSearchString(tags, tab) {
 
@@ -31,6 +31,7 @@ function App(props) {
   const [toRead, setToRead] = useState(JSON.parse(localStorage.getItem('toRead')) || books);
   const [inProgress, setInProgress] = useState(JSON.parse(localStorage.getItem('inProgress')) || {});
   const [done, setDone] = useState(JSON.parse(localStorage.getItem('done')) || {});
+  const [lastId, setLastId] = useState(localStorage.getItem('lastId') || 10);
 
   const currentTabParams = {
     'toRead':  [toRead, setToRead, setInProgress, <span>Start reading &#x2192;</span>],
@@ -57,12 +58,13 @@ function App(props) {
     window.addEventListener('popstate', handler);
     return () => window.removeEventListener('popstate', handler);
   }, [] );
+  useEffect( () => localStorage.setItem('lastId', JSON.stringify(lastId)), [lastId]);
 
   return (
     <>
     <Tabs currentTab={currentTab} setCurrentTab={setCurrentTab}/>
     <Filter selectedFilter={selectedFilter} setSelectedFilter={setSelectedFilter}/>
-    <AddBook currentTabParams={currentTabParams[currentTab]}/>
+    <AddBook currentTabParams={currentTabParams[currentTab]} lastId={lastId} setLastId={setLastId}/>
     <BooksList currentTabParams={currentTabParams[currentTab]} setSelectedFilter={setSelectedFilter} selectedFilter={selectedFilter}/>
     </>
   )

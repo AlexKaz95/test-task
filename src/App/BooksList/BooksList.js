@@ -9,14 +9,15 @@ function BooksList({currentTabParams, setSelectedFilter, selectedFilter}) {
     let elements = <div className='empty-list'>List is empty</div>;
 
     if (Object.keys(books).length !== 0){
-        elements = Object.keys(books).map(key => {
-            return <Book book={books[key]}
+        elements = [];
+        Object.keys(books).map(key => {
+            elements.unshift(<Book book={books[key]}
                     setCurrentTabList={setCurrentTabList} 
                     setNextTabList={setNextTabList} 
                     textButton={textButton} 
                     setSelectedFilter={setSelectedFilter} 
                     selectedFilter={selectedFilter}
-                    key={books[key].id} />
+                    key={books[key].id} />)
         })
     }
 

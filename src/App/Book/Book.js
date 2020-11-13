@@ -37,6 +37,16 @@ function Book({book, setCurrentTabList, setNextTabList, textButton, setSelectedF
     return itContinue;
   }
 
+  const removeBook = () => {
+    setCurrentTabList(state => {
+      const {[book.id]: del, ...other} = state;
+      console.log(state, other)
+      return {
+        ...other
+      }
+    })
+  }
+
 
   return filterBook() && (
         <div className="book-item">
@@ -45,7 +55,13 @@ function Book({book, setCurrentTabList, setNextTabList, textButton, setSelectedF
             <div className="author">{book.author}</div>
             <div className="title">{book.title}</div>
           </div>
-          <div className="rebase" onClick={changeBookStatus}>{textButton}</div>
+          <div>
+            <p className='buttons-wrapper'>
+              <span className='remove-book' onClick={removeBook}>delete</span>
+              <span className='remove-book'>edit</span>
+            </p>
+            <div className="rebase" onClick={changeBookStatus}>{textButton}</div>
+          </div>
         </div>
         <div className="description">{book.description}</div>
         <Tags tags={book.tags} setSelectedFilter={setTagInFilter}/>

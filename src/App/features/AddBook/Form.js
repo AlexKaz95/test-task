@@ -1,11 +1,21 @@
 import React, {useState} from 'react';
 
-function FormEdit({setFormEditIsOpen, book, setBook}) {
+function Form({setFormIsOpen, lastId, addBook, setLastId}) {
+    const [book, setBook] = useState({
+        id: 'id-'+ (lastId + 1),
+        title: '',
+        author: '',
+        description: '',
+        tags: []
+    });
+
+    console.log(book)
+
     return (
         <div className='modal-window'>
                 <div className='form-add-book'>
-                <div className='close-form' onClick={() => {setFormEditIsOpen(false)}}>×</div>
-                    <h2>Новая книга</h2>
+                <div className='close-form' onClick={() => {setFormIsOpen(false)}}>×</div>
+                <h2>{book.title}</h2>
                 <div className='input-line'>
                     <label htmlFor="author">Автор</label>
                     <input autoComplete="off"  type="text" id='author' onChange={(event) => {setBook(book => {
@@ -44,16 +54,17 @@ function FormEdit({setFormEditIsOpen, book, setBook}) {
                 </div>
                 </div>
                 <div className='add-button' onClick={() => {
-                    setBook(state => {
+                    addBook(state => {
                         return {
                           ...state,
                           [book.id]: book
                         }
                       });
-                    setFormEditIsOpen(false);
+                    setLastId(lastId + 1)
+                    setFormIsOpen(false);
                 }}>Добавить</div>
             </div>
     )
 }
 
-export default FormEdit;
+export default Form;
